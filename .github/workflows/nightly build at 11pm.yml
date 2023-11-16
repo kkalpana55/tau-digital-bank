@@ -5,7 +5,7 @@ on:
      Schedule:
         -cron:'0 23***'
 
-      jobs:
+jobs:
          nightly-built:
               runs-on: ubuntu-latest
               steps: 

@@ -1,19 +1,24 @@
-name:
-     nightly build at 11pm
+name: run unit tests of feature branches
+
 on:
-     push:
-     Schedule:
-        -cron:'0 23***'
+  push:
+    branches: 
+      'feature/*'
+
 
 jobs:
-      nightly-built:
-        runs-on: ubuntu-latest
-        steps: 
-             - name: Checkout
-              uses: actions/checkout@v4.1.1
+  run-unit-test:
+    runs-on: ubuntu-latest
 
-           -name: Run unit test
-           run:mvn test
+
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v3.3.0
+
+
+      - name: run unit test
+        run: mvn test
+          
        - name: Prepare for Build with Apache Maven
        # You may pin to the exact commit or the version.
        # uses: sualeh/prepare-maven-build@7f3e870ae1b4444089875851fb9f071400b390a3
